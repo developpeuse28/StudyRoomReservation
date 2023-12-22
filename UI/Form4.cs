@@ -97,7 +97,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating reservation status and inserting warning: {ex.Message}");
+                MessageBox.Show($"예약 정보 수정 및 경고 발생 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -115,7 +115,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error inserting warning: {ex.Message}");
+                MessageBox.Show($"경고 추가 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -149,7 +149,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error fetching reservation type duration: {ex.Message}");
+                MessageBox.Show($"예약 진행 시간 가져오는 중 오류 발생: {ex.Message}");
             }
 
             return duration;
@@ -225,7 +225,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating member information: {ex.Message}");
+                MessageBox.Show($"회원 정보 업데이트 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -302,7 +302,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in MemberHasSelectedLocker: {ex.Message}");
+                MessageBox.Show($"월회원 사물함 사용 여부 확인 중 오류 발생: {ex.Message}");
             }
 
             return false;
@@ -341,7 +341,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in HighlightSelectedLocker: {ex.Message}");
+                MessageBox.Show($"월회원이 사용 중인 사물함 강조 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -386,7 +386,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in FilterReservationTypes: {ex.Message}");
+                MessageBox.Show($"예약 종류 필터 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -552,7 +552,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error retrieving data: {ex.Message}");
+                MessageBox.Show($"경고 내역 검색 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -617,7 +617,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in metroButton44_Click: {ex.Message}");
+                MessageBox.Show($"사용 가능 좌석 검색 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -682,7 +682,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in metroButton45_Click: {ex.Message}");
+                MessageBox.Show($"사용 가능 사물함 검색 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -765,7 +765,7 @@ namespace UI
                             }
 
                             dbc.DCom.Connection = dbc.Con;
-                            dbc.DCom.CommandText = $"UPDATE LOCKER SET LOCKER_STATE = '사용 중', LOCKER_CODE = '{selectedLocker}' WHERE LOCKER_CODE = '{selectedLocker}'";
+                            dbc.DCom.CommandText = $"UPDATE locker SET locker_state = '사용 중', locker_code = '{selectedLocker}' WHERE locker_code = '{selectedLocker}'";
                             dbc.DCom.ExecuteNonQuery();
                         }
                         catch (DataException DE)
@@ -806,7 +806,7 @@ namespace UI
                 }
 
                 dbc.DS.Clear();
-                dbc.DCom.CommandText = "select * from reservation";
+                dbc.DCom.CommandText = "SELECT * FROM reservation";
                 dbc.DA.SelectCommand = dbc.DCom;
                 dbc.DA.Fill(dbc.DS, "reservation");
                 dbc.ReservationTable = dbc.DS.Tables["reservation"];
@@ -833,7 +833,7 @@ namespace UI
                 MessageBox.Show("예약 완료!");
 
                 dbc.DS.Clear();
-                dbc.DCom.CommandText = "select * from seat";
+                dbc.DCom.CommandText = "SELECT * FROM seat";
                 dbc.DA.SelectCommand = dbc.DCom;
                 dbc.DA.Fill(dbc.DS, "seat");
                 dbc.SeatTable = dbc.DS.Tables["seat"];
@@ -842,8 +842,8 @@ namespace UI
 
                 if (seatRows.Length > 0)
                 {
-                    seatRows[0]["SEAT_CODE"] = selectedSeat;
-                    seatRows[0]["SEAT_STATE"] = "사용 중";
+                    seatRows[0]["seat_code"] = selectedSeat;
+                    seatRows[0]["seat_state"] = "사용 중";
                 }
                 else
                 {
@@ -852,7 +852,7 @@ namespace UI
                 }
 
                 dbc.DCom.Connection = dbc.Con;
-                dbc.DCom.CommandText = $"UPDATE SEAT SET SEAT_STATE = '사용 중', SEAT_CODE = '{selectedSeat}' WHERE SEAT_CODE = '{selectedSeat}'";
+                dbc.DCom.CommandText = $"UPDATE seat SET seat_state = '사용 중', seat_code = '{selectedSeat}' WHERE seat_code = '{selectedSeat}'";
                 dbc.DCom.ExecuteNonQuery();
             }
             catch (DataException DE)

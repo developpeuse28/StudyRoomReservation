@@ -168,7 +168,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in metroButton44_Click: {ex.Message}");
+                MessageBox.Show($"사용 가능 좌석 검색 중 오류 발생: {ex.Message}");
             }
 
         }
@@ -246,7 +246,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating reservation data: {ex.Message}");
+                MessageBox.Show($"예약 업데이트 중 오류 발생: {ex.Message}");
             }
         }
 

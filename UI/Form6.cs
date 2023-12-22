@@ -113,7 +113,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in showDataGridView: {ex.Message}");
+                MessageBox.Show($"데이터그리드뷰 출력 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -207,7 +207,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error in SortDataGridView: {ex.Message}");
+                MessageBox.Show($"데이터그리드뷰 정렬 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -290,7 +290,7 @@ namespace UI
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show($"Error deleting reservation: {ex.Message}");
+                            MessageBox.Show($"예약 취소 중 오류 발생: {ex.Message}");
                         }
                     }
                 }

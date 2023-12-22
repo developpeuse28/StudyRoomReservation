@@ -131,7 +131,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during check-in: {ex.Message}");
+                MessageBox.Show($"입실 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -183,7 +183,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during check-in: {ex.Message}");
+                MessageBox.Show($"외출 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -250,7 +250,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during check-out: {ex.Message}");
+                MessageBox.Show($"퇴실 중 오류 발생: {ex.Message}");
             }
         }
     }

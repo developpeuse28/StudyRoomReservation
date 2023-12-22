@@ -203,7 +203,7 @@ namespace UI
                     DataRow[] memberRows = dbc.DS.Tables["member"].Select($"member_no = {memberId}");
                     if (memberRows.Length > 0 && memberRows[0]["membership_type"].ToString() == "월회원")
                     {
-                        DataRow[] membermRows = dbc.DS.Tables["member"].Select($"member_no = {memberId} and membership_type='월회원' and locker_code is not null");
+                        DataRow[] membermRows = dbc.DS.Tables["member"].Select($"member_no = {memberId} AND membership_type='월회원' AND locker_code IS NOT NULL");
                         if (membermRows.Length > 0)
                         {
                             string selectedLocker = membermRows[0]["locker_code"].ToString();
@@ -231,7 +231,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during member information update: {ex.Message}");
+                MessageBox.Show($"회원 정보 삭제 중 오류 발생: {ex.Message}");
             }
         }
 
@@ -281,7 +281,7 @@ namespace UI
                 {
                     if (metroComboBox2.SelectedItem.ToString() == "일반회원")
                     {
-                        DataRow[] membermRows = dbc.DS.Tables["member"].Select($"member_no = {memberId} and membership_type='월회원'");
+                        DataRow[] membermRows = dbc.DS.Tables["member"].Select($"member_no = {memberId} AND membership_type='월회원'");
 
                         if (membermRows.Length > 0)
                         {
@@ -327,7 +327,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error during member information update: {ex.Message}");
+                MessageBox.Show($"회원 정보 수정 중 오류 발생: {ex.Message}");
             }
         }
     }

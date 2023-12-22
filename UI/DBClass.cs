@@ -1,7 +1,7 @@
-﻿using Oracle.DataAccess.Client;
-using System;
+﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using Oracle.DataAccess.Client;
 
 namespace UI
 {
@@ -38,7 +38,7 @@ namespace UI
 
                 foreach (DataTable table in GetAllTables())
                 {
-                    string commandString = $"select * from {table.TableName}";
+                    string commandString = $"SELECT * FROM {table.TableName}";
 
                     DA = new OracleDataAdapter(commandString, connectionString);
                     MyCommandBuilder = new OracleCommandBuilder(DA);
